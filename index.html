@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Socket.io</title>
+</head>
+<body>
+ <h1>Socket.io</h1>
+
+ <script src="/socket.io/socket.io.js"></script>
+
+ <script type="module">
+     const socket = io();
+
+        socket.on('connect', () => {
+            console.log('Connected to client');
+        });
+
+           //get emit
+           socket.on('message', (msg) => {
+                console.log(msg);
+            });
+
+           //send emit
+            socket.emit('new message', 'new message from client');
+        
+
+
+        socket.on('disconnect', () => {
+            console.log('Disconnected from client');
+        });
+ </script>
+
+</body>
+</html>
